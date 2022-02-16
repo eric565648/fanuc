@@ -2,6 +2,10 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
 
+  <xacro:property name="density" value="1048" />
+  <xacro:property name="scaling" value="0.00001" />
+  <xacro:property name="dens_scale" value="${density}*${scaling}" />
+
   <xacro:macro name="fanuc_m900ia260l" params="prefix">
     <!-- links: main serial chain -->
     <link name="${prefix}base_link">
@@ -18,6 +22,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/base_link.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.0479547 0.0005924 0.1838477 " rpy="0 0 0"/>
+        <mass value="0.179502640*{density}"/>
+        <inertia
+          ixx="758.002563*${dens_scale}" ixy="0.059074*${dens_scale}" ixz="-29.833698*${dens_scale}"
+          iyy="1059.352539*${dens_scale}" iyz="0.779661*${dens_scale}"
+          izz="1392.725098*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_1">
       <visual>
@@ -33,6 +45,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_1.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.2508056 -0.0039480 -0.1876394 " rpy="0 0 0"/>
+        <mass value="0.428307129*{density}"/>
+        <inertia
+          ixx="4593.856934*${dens_scale}" ixy="-51.459423*${dens_scale}" ixz="-767.660156*${dens_scale}"
+          iyy="3659.617188*${dens_scale}" iyz="0.543368*${dens_scale}"
+          izz="4472.774902*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_2">
       <visual>
@@ -48,6 +68,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_2.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0208002 -0.0321524 0.4698709 " rpy="0 0 0"/>
+        <mass value="0.146323502*{density}"/>
+        <inertia
+          ixx="1881.386841*${dens_scale}" ixy="-15.604090*${dens_scale}" ixz="29.171331*${dens_scale}"
+          iyy="1862.439209*${dens_scale}" iyz="-94.617111*${dens_scale}"
+          izz="311.525116*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_3">
       <visual>
@@ -63,6 +91,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_3.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.3940928 -0.0020985 0.1485200" rpy="0 0 0"/>
+        <mass value="0.206138123*{density}"/>
+        <inertia
+          ixx="399.825439*${dens_scale}" ixy="2.884355*${dens_scale}" ixz="-246.776382*${dens_scale}"
+          iyy="5650.399902*${dens_scale}" iyz="-2.081667*${dens_scale}"
+          izz="5621.276855*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_4">
       <visual>
@@ -78,6 +114,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_4.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="1.5984120 -0.0070510 -0.0000020" rpy="0 0 0"/>
+        <mass value="0.011438374*{density}"/>
+        <inertia
+          ixx="6.721434*${dens_scale}" ixy="0.585065*${dens_scale}" ixz="-0.000148*${dens_scale}"
+          iyy="14.125363*${dens_scale}" iyz="-0.000006*${dens_scale}"
+          izz="13.054061*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_5">
       <visual>
@@ -93,6 +137,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_5.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0419062 -0.0278710 -0.0000007" rpy="0 0 0"/>
+        <mass value="0.020431719*{density}"/>
+        <inertia
+          ixx="22.334682*${dens_scale}" ixy="-2.872280*${dens_scale}" ixz="0.000051*${dens_scale}"
+          iyy="24.979155*${dens_scale}" iyz="0.000064*${dens_scale}"
+          izz="29.386639*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_6">
       <visual>
@@ -108,6 +160,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/link_6.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.0274942 -0 -0" rpy="0 0 0"/>
+        <mass value="0.002406848*{density}"/>
+        <inertia
+          ixx="1.555723*${dens_scale}" ixy="0*${dens_scale}" ixz="0*${dens_scale}"
+          iyy="0.850091*${dens_scale}" iyz="0.0000*${dens_scale}"
+          izz="0.850086*${dens_scale}"/>
+      </inertial>
     </link>
 
     <!-- joints: main serial chain -->
@@ -169,6 +229,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/plink_1.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.1043124 -0.0504379 -0.0145418" rpy="0 0 0"/>
+        <mass value="0.027578537*{density}"/>
+        <inertia
+          ixx="32.950230*${dens_scale}" ixy="-1.911048*${dens_scale}" ixz="-1.272046*${dens_scale}"
+          iyy="97.812645*${dens_scale}" iyz="0.253856*${dens_scale}"
+          izz="73.873703*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}plink_2">
       <visual>
@@ -184,6 +252,14 @@
           <mesh filename="package://fanuc_m900ia_support/meshes/m900ia260l/collision/plink_2.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.0285391 0.0022351 -0.5422898" rpy="0 0 0"/>
+        <mass value="0.012706021*{density}"/>
+        <inertia
+          ixx="115.503403*${dens_scale}" ixy="-0.027600*${dens_scale}" ixz="-1.782988*${dens_scale}"
+          iyy="118.431725*${dens_scale}" iyz="-0.022260*${dens_scale}"
+          izz="3.922133*${dens_scale}"/>
+      </inertial>
     </link>
     <joint name="${prefix}pjoint_1" type="continuous">
       <origin xyz="0 0.17 0" rpy="0 0 0"/>
