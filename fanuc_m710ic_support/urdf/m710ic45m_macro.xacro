@@ -2,6 +2,10 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
   <xacro:include filename="$(find fanuc_resources)/urdf/common_materials.xacro"/>
 
+  <xacro:property name="density" value="1048" />
+  <xacro:property name="scaling" value="0.00001" />
+  <xacro:property name="dens_scale" value="${density}*${scaling}" />
+
   <!-- note: we use almost all meshes from the M-710iC/50 as only links 2 and 4 are different. -->
   <xacro:macro name="fanuc_m710ic45m" params="prefix">
     <!-- links: main serial chain -->
@@ -19,6 +23,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic50/collision/base_link.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.0494077 -0.0002174 0.1192173 " rpy="0 0 0"/>
+        <mass value="0.066986893*{density}"/>
+        <inertia
+          ixx="178.098145*${dens_scale}" ixy="0.485529*${dens_scale}" ixz="2.748357*${dens_scale}"
+          iyy="181.958237*${dens_scale}" iyz="-0.227367*${dens_scale}"
+          izz="289.761658*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_1">
       <visual>
@@ -34,6 +46,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic50/collision/link_1.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0513947 -0.0070627 -0.1050768 " rpy="0 0 0"/>
+        <mass value="0.103668549*{density}"/>
+        <inertia
+          ixx="386.833496*${dens_scale}" ixy="-17.122465*${dens_scale}" ixz="-25.931326*${dens_scale}"
+          iyy="329.742950*${dens_scale}" iyz="11.369209*${dens_scale}"
+          izz="413.927490*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_2">
       <visual>
@@ -49,6 +69,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic45m/collision/link_2.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0025489 0.1553528 0.4616433 " rpy="0 0 0"/>
+        <mass value="0.058613258*{density}"/>
+        <inertia
+          ixx="806.448608*${dens_scale}" ixy="1.348914*${dens_scale}" ixz="0.912000*${dens_scale}"
+          iyy="824.407898*${dens_scale}" iyz="-26.071480*${dens_scale}"
+          izz="48.607079*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_3">
       <visual>
@@ -64,6 +92,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic50/collision/link_3.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0223306 -0.0314858 0.0862886 " rpy="0 0 0"/>
+        <mass value="0.048697914*{density}"/>
+        <inertia
+          ixx="93.787186*${dens_scale}" ixy="-9.296334*${dens_scale}" ixz="-13.200597*${dens_scale}"
+          iyy="121.645370*${dens_scale}" iyz="-5.063631*${dens_scale}"
+          izz="109.984634*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_4">
       <visual>
@@ -79,6 +115,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic45m/collision/link_4.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.8059817 -0.0208045 0.0004059 " rpy="0 0 0"/>
+        <mass value="0.024092754*{density}"/>
+        <inertia
+          ixx="8.925513*${dens_scale}" ixy="9.760942*${dens_scale}" ixz="-0.090163*${dens_scale}"
+          iyy="239.675690*${dens_scale}" iyz="-0.031016*${dens_scale}"
+          izz="240.442001*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_5">
       <visual>
@@ -94,6 +138,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic50/collision/link_5.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.0384575 0.0039676 -0 " rpy="0 0 0"/>
+        <mass value="0.004812530*{density}"/>
+        <inertia
+          ixx="1.779768*${dens_scale}" ixy="-0.136643*${dens_scale}" ixz="-0.000000*${dens_scale}"
+          iyy="2.552691*${dens_scale}" iyz="0*${dens_scale}"
+          izz="2.708632*${dens_scale}"/>
+      </inertial>
     </link>
     <link name="${prefix}link_6">
       <visual>
@@ -109,6 +161,14 @@
           <mesh filename="package://fanuc_m710ic_support/meshes/m710ic50/collision/link_6.stl"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.0122228 0.0000157 0 " rpy="0 0 0"/>
+        <mass value="0.000248562*{density}"/>
+        <inertia
+          ixx="0.047968*${dens_scale}" ixy="0.000001*${dens_scale}" ixz="0.000000*${dens_scale}"
+          iyy="0.024856*${dens_scale}" iyz="0.000000*${dens_scale}"
+          izz="0.024850*${dens_scale}"/>
+      </inertial>
     </link>
 
     <!-- joints: main serial chain -->
